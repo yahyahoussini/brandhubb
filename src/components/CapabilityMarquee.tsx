@@ -66,7 +66,7 @@ const CapabilityMarquee = () => {
             return (
               <div key={index} className="flex-shrink-0">
                 <div 
-                  className="relative w-64 h-64 rounded-3xl overflow-hidden bg-black/90 backdrop-blur-sm border border-gray-800 hover:border-gray-700 transition-all duration-300 group cursor-pointer"
+                  className="relative w-64 h-64 rounded-4xl overflow-hidden bg-black/90 backdrop-blur-sm border border-gray-800 hover:border-gray-700 transition-all duration-300 group cursor-pointer"
                   onClick={() => handleServiceClick(capability.whatsappKey)}
                 >
                   {/* Service Image - Takes most of the space */}
@@ -84,7 +84,7 @@ const CapabilityMarquee = () => {
                   
                   {/* Service Label - Bottom section */}
                   <div className="absolute bottom-0 left-0 right-0 p-4 bg-black/90 backdrop-blur-sm">
-                    <h3 className="text-lg font-semibold text-white text-center">
+                    <h3 className="text-lg font-semibold text-primary-foreground text-center">
                       {capability.label}
                     </h3>
                   </div>
@@ -100,7 +100,7 @@ const CapabilityMarquee = () => {
             return (
               <div key={index + 21} className="flex-shrink-0">
                 <div 
-                  className="relative w-64 h-64 rounded-3xl overflow-hidden bg-black/90 backdrop-blur-sm border border-gray-800 hover:border-gray-700 transition-all duration-300 group cursor-pointer"
+                  className="relative w-64 h-64 rounded-4xl overflow-hidden bg-black/90 backdrop-blur-sm border border-gray-800 hover:border-gray-700 transition-all duration-300 group cursor-pointer"
                   onClick={() => handleServiceClick(capability.whatsappKey)}
                 >
                   {/* Service Image - Takes most of the space */}
@@ -118,7 +118,7 @@ const CapabilityMarquee = () => {
                   
                   {/* Service Label - Bottom section */}
                   <div className="absolute bottom-0 left-0 right-0 p-4 bg-black/90 backdrop-blur-sm">
-                    <h3 className="text-lg font-semibold text-white text-center">
+                    <h3 className="text-lg font-semibold text-primary-foreground text-center">
                       {capability.label}
                     </h3>
                   </div>
