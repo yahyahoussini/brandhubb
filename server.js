@@ -86,10 +86,14 @@ async function createServer() {
   return { app };
 }
 
-if (!isTest) {
-  createServer().then(({ app }) =>
+const serverPromise = createServer();
+
+if (!process.env.VERCEL) {
+  serverPromise.then(({ app }) => {
     app.listen(5173, () => {
       console.log("HTTP server is running at http://localhost:5173");
-    })
-  );
+    });
+  });
 }
+
+export default serverPromise.then(({ app }) => app);
