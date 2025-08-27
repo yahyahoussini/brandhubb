@@ -1,14 +1,14 @@
-import { useState, useEffect } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { useState, useEffect, useCallback } from "react";
+import { supabase } from "@/shared/api/supabase/client";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "@/hooks/useAuth";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import AnalyticsDashboard from "@/components/analytics/AnalyticsDashboard";
+import { useAuth } from "@/features/auth/useAuth";
+import Header from "@/widgets/Header";
+import Footer from "@/widgets/Footer";
+import { Button } from "@/shared/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/shared/ui/card";
+import { Badge } from "@/shared/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/shared/ui/tabs";
+import AnalyticsDashboard from "@/features/analytics-dashboard/components/AnalyticsDashboard";
 import { useTranslation } from "react-i18next";
 import { 
   Plus, 
@@ -45,18 +45,13 @@ const BlogAdmin = () => {
     }
   }, [user, loading, navigate]);
 
-  useEffect(() => {
-    if (user) {
-      fetchPosts();
-    }
-  }, [user]);
-
-  const fetchPosts = async () => {
+  const fetchPosts = useCallback(async () => {
+    if (!user) return;
     try {
       const { data, error } = await supabase
         .from('blog_posts')
         .select('*')
-        .eq('author_id', user?.id)
+        .eq('author_id', user.id)
         .order('created_at', { ascending: false });
 
       if (error) throw error;
@@ -65,7 +60,11 @@ const BlogAdmin = () => {
       console.error('Error fetching posts:', error);
       toast.error('Failed to fetch posts');
     }
-  };
+  }, [user]);
+
+  useEffect(() => {
+    fetchPosts();
+  }, [fetchPosts]);
 
   const togglePublished = async (postId: string, currentStatus: boolean) => {
     try {

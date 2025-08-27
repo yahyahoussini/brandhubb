@@ -1,15 +1,15 @@
-import Header from "@/components/Header";
-import SocialProofTicker from "@/components/SocialProofTicker";
-import HeroSection from "@/components/HeroSection";
-import CapabilityMarquee from "@/components/CapabilityMarquee";
-import ProcessSection from "@/components/ProcessSection";
-import TestimonialsCarousel from "@/components/TestimonialsCarousel";
-import ProductPillars from "@/components/ProductPillars";
-import WorkGallery from "@/components/WorkGallery";
-import CustomProjectSection from "@/components/CustomProjectSection";
-import PricingSection from "@/components/PricingSection";
-import FAQSection from "@/components/FAQSection";
-import Footer from "@/components/Footer";
+import Header from "@/widgets/Header";
+import SocialProofTicker from "@/widgets/SocialProofTicker";
+import HeroSection from "@/widgets/HeroSection";
+import CapabilityMarquee from "@/widgets/CapabilityMarquee";
+import ProcessSection from "@/widgets/ProcessSection";
+import TestimonialsCarousel from "@/widgets/TestimonialsCarousel";
+import ProductPillars from "@/widgets/ProductPillars";
+import WorkGallery from "@/widgets/WorkGallery";
+import CustomProjectSection from "@/widgets/CustomProjectSection";
+import PricingSection from "@/widgets/PricingSection";
+import FAQSection from "@/widgets/FAQSection";
+import Footer from "@/widgets/Footer";
 
 const Index = () => {
   return (
