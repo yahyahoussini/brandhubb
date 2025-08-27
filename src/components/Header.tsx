@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from "react-router-dom";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { ThemeSwitcher } from "./ThemeSwitcher";
 
 const Header = () => {
   const { t } = useTranslation();
@@ -71,6 +72,7 @@ const Header = () => {
 
           {/* Navigation CTAs */}
           <div className="hidden md:flex items-center space-x-3">
+            <ThemeSwitcher />
             <LanguageSwitcher />
             <Button
               variant="outline"
