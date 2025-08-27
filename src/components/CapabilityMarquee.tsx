@@ -72,8 +72,11 @@ const CapabilityMarquee = () => {
                   {/* Service Image - Takes most of the space */}
                   <div className="relative h-44 overflow-hidden rounded-t-3xl">
                     <img 
-                      src={capability.image} 
+                      src={capability.image}
                       alt={capability.label}
+                      loading="lazy"
+                      decoding="async"
+                      srcSet={`${capability.image} 1x, ${capability.image} 2x`}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
@@ -105,6 +108,9 @@ const CapabilityMarquee = () => {
                     <img 
                       src={capability.image} 
                       alt={capability.label}
+                      loading="lazy"
+                      decoding="async"
+                      srcSet={`${capability.image} 1x, ${capability.image} 2x`}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
