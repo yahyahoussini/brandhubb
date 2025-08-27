@@ -1,0 +1,309 @@
+{
+  "header": {
+    "login": "Connexion",
+    "pricing": "Voir les prix",
+    "bookCall": "Réserver un appel",
+    "blog": "Blog"
+  },
+  "socialProof": {
+    "founders": "11 fondateurs",
+    "bookedThisWeek": "ont réservé un appel cette semaine !"
+  },
+  "hero": {
+    "title": "Agence de Design",
+    "subtitle": "Construite Différemment.",
+    "description": "Abonnement design pour faire évoluer votre entreprise.",
+    "pricing": "Voir les prix",
+    "letsTalk": "Parlons-en"
+  },
+  "process": {
+    "title": "Pas d'attente. Pas de stress.",
+    "subtitle": "Juste un excellent design.",
+    "description": "Un processus rationalisé qui vous offre des designs professionnels sans les frais généraux d'une agence.",
+    "steps": {
+      "subscribe": {
+        "title": "S'abonner",
+        "description": "Commencez votre abonnement et accédez à votre équipe créative.",
+        "features": [
+          "Présentations", "Logos", "Réseaux Sociaux", "Design Email",
+          "Supports Print", "Packaging", "Créatifs", "Pages d'atterrissage",
+          "Pitch Decks", "Publicités Display", "Design UI/UX"
+        ]
+      },
+      "request": {
+        "title": "Demander",
+        "description": "Demandez n'importe quoi, des logos au design d'app, tout dans votre tableau de bord.",
+        "features": [
+          "Accès Tableau Trello", "File de Priorité", "Téléchargements de Fichiers",
+          "Mises à jour Temps Réel", "Communication Équipe", "Suivi des Progrès"
+        ]
+      },
+      "approve": {
+        "title": "Approuver et Répéter",
+        "description": "Délais de 1 à 3 jours. Révisions jusqu'à ce que ce soit parfait.",
+        "features": [
+          "Travail Illimité", "Livraison 1-3 Jours", "Annuler à Tout Moment",
+          "Révisions Illimitées", "Garantie Qualité", "Évolutivité Flexible"
+        ]
+      }
+    }
+  },
+  "testimonials": {
+    "title": "Ce que disent nos clients"
+  },
+  "capabilities": {
+    "title": "Tout votre département créatif, sous un même toit.",
+    "services": {
+      "webDevelopment": "Développement Web",
+      "socialMedia": "Réseaux Sociaux",
+      "logoDesign": "Design Logo",
+      "landingPages": "Pages d'Atterrissage",
+      "branding": "Image de Marque",
+      "webDesign": "Design Web",
+      "packaging": "Design Packaging",
+      "motionDesign": "Motion Design",
+      "emailDesign": "Design Email",
+      "uiux": "Design UI/UX",
+      "3dModeling": "Modélisation 3D",
+      "aiAutomation": "Automatisation IA",
+      "customAi": "IA Personnalisée",
+      "studioPhotography": "Photographie Studio"
+    }
+  },
+  "pricing": {
+    "title": "Un abonnement. Zéro limite.",
+    "standard": {
+      "name": "Standard",
+      "cta": "Commencer Maintenant !",
+      "features": [
+        "Image de marque, logos, posts réseaux sociaux, sites web, design app UI/UX",
+        "Équipe de 2 (Stratège de marque, designers, développeurs)",
+        "2 mises à jour hebdomadaires",
+        "Révisions illimitées",
+        "Livraison moyenne 1-3 jours",
+        "Mettre en pause/annuler à tout moment"
+      ]
+    },
+    "plus": {
+      "name": "Plus",
+      "cta": "Designer Aujourd'hui",
+      "features": [
+        "Tout dans Standard +",
+        "Vidéos réseaux sociaux, montage vidéo, motion design",
+        "Équipe de 3 (Stratège de marque, designers, animateurs)",
+        "3 mises à jour hebdomadaires",
+        "Même SLA et avantages"
+      ]
+    }
+  },
+  "faq": {
+    "title": "Questions Fréquemment Posées",
+    "items": [
+      {
+        "question": "Quel est le délai de réalisation ?",
+        "answer": "La plupart des demandes sont traitées en 1 à 3 jours ouvrables. Les éléments complexes peuvent prendre plus de temps."
+      },
+      {
+        "question": "Le travail est-il vraiment illimité ?",
+        "answer": "Oui ! Ajoutez autant de demandes que vous le souhaitez, traitées une à la fois."
+      },
+      {
+        "question": "Puis-je mettre en pause mon abonnement ?",
+        "answer": "Absolument ! Mettez en pause votre facturation et reprenez plus tard. Les jours non utilisés sont conservés."
+      }
+    ]
+  },
+  "footer": {
+    "about": "À propos de nous",
+    "services": "Services",
+    "testimonials": "Témoignages",
+    "bookCall": "Réserver un appel",
+    "terms": "Conditions d'utilisation",
+    "privacy": "Politique de confidentialité",
+    "contact": "Contact",
+    "copyright": "© 2025 BrandHUB."
+  },
+  "whatsapp": {
+    "brandStrategy": "Bonjour ! Je suis intéressé par vos services de stratégie de marque. Pouvez-vous me donner plus d'informations ?",
+    "brandDesign": "Bonjour ! J'aimerais en savoir plus sur vos services de design de marque.",
+    "motionDesign": "Bonjour ! Je suis intéressé par vos services de motion design.",
+    "webDevelopment": "Bonjour ! J'aimerais discuter de mes besoins en développement web.",
+    "packaging": "Bonjour ! Je suis intéressé par vos services de design packaging.",
+    "uiux": "Bonjour ! J'aimerais en savoir plus sur vos services de design UI/UX.",
+    "webDesign": "Bonjour ! Je suis intéressé par vos services de design web.",
+    "landingPages": "Bonjour ! J'aimerais discuter de la création de pages d'atterrissage.",
+    "marketing": "Bonjour ! Je suis intéressé par vos services de contenu marketing.",
+    "3d": "Bonjour ! J'aimerais en savoir plus sur vos services de modélisation 3D.",
+    "aiAutomation": "Bonjour ! Je suis intéressé par vos services d'automatisation IA.",
+    "customAi": "Bonjour ! J'aimerais discuter de solutions IA personnalisées.",
+    "photography": "Bonjour ! Je suis intéressé par vos services de photographie studio."
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Dernières perspectives et mises à jour",
+    "readMore": "Lire Plus",
+    "readTime": "min de lecture",
+    "publishedOn": "Publié le",
+    "tags": "Tags",
+    "relatedPosts": "Articles Connexes",
+    "sharePost": "Partager l'Article",
+    "backToBlog": "Retour au Blog",
+    "noPostsFound": "Aucun article trouvé",
+    "searchPlaceholder": "Rechercher des articles...",
+    "admin": {
+      "title": "Administration Blog",
+      "subtitle": "Gérer vos articles de blog et analytics",
+      "newPost": "Nouvel Article",
+      "signOut": "Se Déconnecter",
+      "posts": "Articles",
+      "analytics": "Analytics",
+      "noPosts": "Aucun article encore",
+      "createFirstPost": "Créez votre premier article pour commencer",
+      "createPost": "Créer un Article",
+      "published": "Publié",
+      "draft": "Brouillon",
+      "edit": "Modifier",
+      "delete": "Supprimer",
+      "publish": "Publier",
+      "unpublish": "Dépublier",
+      "confirmDelete": "Êtes-vous sûr de vouloir supprimer cet article ?",
+      "postPublished": "Article publié",
+      "postUnpublished": "Article dépublié",
+      "postDeleted": "Article supprimé"
+    },
+    "editor": {
+      "title": "Éditeur de Blog",
+      "newPost": "Nouvel Article",
+      "editPost": "Modifier l'Article",
+      "titlePlaceholder": "Titre de l'article...",
+      "slugPlaceholder": "slug-de-larticle",
+      "excerptPlaceholder": "Brève description de votre article...",
+      "contentPlaceholder": "Écrivez le contenu de votre article ici...",
+      "seoTitle": "Titre SEO",
+      "seoDescription": "Description SEO",
+      "featuredImage": "Image à la Une",
+      "videoUrl": "URL Vidéo",
+      "tags": "Tags",
+      "tagsPlaceholder": "Ajouter des tags (appuyez sur Entrée pour ajouter)",
+      "saveDraft": "Sauvegarder en Brouillon",
+      "publishPost": "Publier l'Article",
+      "updatePost": "Mettre à Jour l'Article",
+      "cancel": "Annuler",
+      "postSaved": "Article sauvegardé avec succès",
+      "postUpdated": "Article mis à jour avec succès",
+      "fillRequired": "Veuillez remplir tous les champs requis"
+    }
+  },
+  "auth": {
+    "signIn": "Se Connecter",
+    "signUp": "S'Inscrire",
+    "email": "Email",
+    "password": "Mot de Passe",
+    "confirmPassword": "Confirmer le Mot de Passe",
+    "forgotPassword": "Mot de passe oublié ?",
+    "resetPassword": "Réinitialiser le Mot de Passe",
+    "backToSignIn": "Retour à la Connexion",
+    "dontHaveAccount": "Vous n'avez pas de compte ?",
+    "alreadyHaveAccount": "Vous avez déjà un compte ?",
+    "signInWithGoogle": "Se connecter avec Google",
+    "signUpWithGoogle": "S'inscrire avec Google",
+    "checkEmail": "Vérifiez votre email pour le lien de confirmation",
+    "passwordReset": "Email de réinitialisation du mot de passe envoyé",
+    "invalidCredentials": "Email ou mot de passe invalide",
+    "signInSuccess": "Bon retour !",
+    "signUpSuccess": "Compte créé avec succès !"
+  },
+  "analytics": {
+    "title": "Tableau de Bord Analytics",
+    "today": "Aujourd'hui",
+    "last7Days": "7 Jours",
+    "last30Days": "30 Jours",
+    "primaryKPIs": "KPIs Primaires",
+    "secondaryKPIs": "KPIs Secondaires",
+    "whatsappLeads": "Prospects WhatsApp",
+    "pricingConversion": "Conversion Prix → WA",
+    "qualifiedLeadRate": "Taux de Prospects Qualifiés",
+    "closeRate": "Taux de Fermeture",
+    "revenue": "Revenus",
+    "medianReplyTime": "Temps de Réponse Médian",
+    "sessions": "Sessions",
+    "users": "Utilisateurs",
+    "acquisition": "Acquisition",
+    "pricing": "Tarification",
+    "whatsapp": "WhatsApp",
+    "blog": "Blog",
+    "pipeline": "Pipeline",
+    "topTrafficSources": "Principales Sources de Trafic",
+    "deviceBreakdown": "Répartition par Appareil",
+    "newVsReturning": "Nouveau vs Récurrent",
+    "conversionFunnel": "Entonnoir de Conversion",
+    "ctaPerformance": "Performance CTA par Emplacement",
+    "pricingInsights": "Insights Page Tarification",
+    "totalPageViews": "Total Vues de Page",
+    "activeCTAPlacements": "Emplacements CTA Actifs",
+    "optimizationTips": "Conseils d'Optimisation",
+    "blogImpactSummary": "Résumé Impact Blog",
+    "totalAssistedLeads": "Total Prospects Assistés",
+    "avgScrollDepth": "Profondeur de Défilement Moy.",
+    "totalCTAClicks": "Total Clics CTA",
+    "contentOptimizationTips": "Conseils Optimisation Contenu",
+    "leadsBySource": "Prospects par Source",
+    "leadsByService": "Prospects par Service",
+    "responseTimeAnalysis": "Analyse Temps de Réponse",
+    "performanceInsights": "Insights Performance",
+    "strengths": "Forces",
+    "opportunities": "Opportunités",
+    "topPerformingPosts": "Articles les Plus Performants",
+    "pipelineHealth": "Santé du Pipeline",
+    "activePipeline": "Pipeline Actif",
+    "potentialRevenue": "Revenus Potentiels",
+    "pipelineInsights": "Insights Pipeline",
+    "revenueBySource": "Revenus par Source",
+    "performanceByService": "Performance par Service",
+    "timeToCloseAnalysis": "Analyse Temps de Fermeture"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "save": "Sauvegarder",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "view": "Voir",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "sort": "Trier",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "yes": "Oui",
+    "no": "Non",
+    "confirm": "Confirmer",
+    "close": "Fermer",
+    "back": "Retour",
+    "continue": "Continuer",
+    "submit": "Soumettre",
+    "reset": "Réinitialiser",
+    "clear": "Effacer",
+    "all": "Tout",
+    "none": "Aucun",
+    "more": "Plus",
+    "less": "Moins",
+    "show": "Afficher",
+    "hide": "Masquer"
+  },
+  "errors": {
+    "404": {
+      "title": "Page Non Trouvée",
+      "description": "La page que vous recherchez n'existe pas.",
+      "backHome": "Retour à l'Accueil"
+    },
+    "500": {
+      "title": "Quelque chose s'est mal passé",
+      "description": "Nous travaillons pour corriger ce problème.",
+      "tryAgain": "Réessayer"
+    },
+    "network": "Erreur réseau. Veuillez vérifier votre connexion.",
+    "unauthorized": "Vous n'êtes pas autorisé à accéder à cette ressource.",
+    "forbidden": "Accès refusé.",
+    "validation": "Veuillez vérifier votre saisie et réessayer."
+  }
+}

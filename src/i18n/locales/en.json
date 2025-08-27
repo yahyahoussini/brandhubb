@@ -1,0 +1,309 @@
+{
+  "header": {
+    "login": "Login",
+    "pricing": "See pricing",
+    "bookCall": "Book a call",
+    "blog": "Blog"
+  },
+  "socialProof": {
+    "founders": "11 founders",
+    "bookedThisWeek": "booked a call this week!"
+  },
+  "hero": {
+    "title": "Design Agency",
+    "subtitle": "Built Different.",
+    "description": "Design subscription to scale your business.",
+    "pricing": "See pricing",
+    "letsTalk": "Let's Talk"
+  },
+  "process": {
+    "title": "No waiting. No overwhelm.",
+    "subtitle": "Just great design.",
+    "description": "A streamlined process that gets you professional designs without the agency overhead.",
+    "steps": {
+      "subscribe": {
+        "title": "Subscribe",
+        "description": "Start your subscription and get access to your creative team.",
+        "features": [
+          "Presentations", "Logos", "Social Media", "Email Design",
+          "Print Materials", "Packaging", "Creatives", "Landing Pages",
+          "Pitch Decks", "Display Ads", "UI/UX Design"
+        ]
+      },
+      "request": {
+        "title": "Request",
+        "description": "Request anything from logos to app design, all in your dashboard.",
+        "features": [
+          "Trello Board Access", "Priority Queue", "File Uploads",
+          "Real-time Updates", "Team Communication", "Progress Tracking"
+        ]
+      },
+      "approve": {
+        "title": "Approve & Repeat",
+        "description": "Turnarounds in 1–3 days. Revisions until it's right.",
+        "features": [
+          "Unlimited Work", "1–3 Day Delivery", "Cancel Anytime",
+          "Unlimited Revisions", "Quality Guarantee", "Flexible Scaling"
+        ]
+      }
+    }
+  },
+  "testimonials": {
+    "title": "What our clients say"
+  },
+  "capabilities": {
+    "title": "All your creative department, under one roof.",
+    "services": {
+      "webDevelopment": "Web Development",
+      "socialMedia": "Social Media",
+      "logoDesign": "Logo Design",
+      "landingPages": "Landing Pages",
+      "branding": "Brandings",
+      "webDesign": "Web Design",
+      "packaging": "Packaging Design",
+      "motionDesign": "Motion Design",
+      "emailDesign": "Email Design",
+      "uiux": "UI/UX Design",
+      "3dModeling": "3D Modeling",
+      "aiAutomation": "AI Automation",
+      "customAi": "Custom AI",
+      "studioPhotography": "Studio Image Shooting"
+    }
+  },
+  "pricing": {
+    "title": "One subscription. Zero limits.",
+    "standard": {
+      "name": "Standard",
+      "cta": "Start Now!",
+      "features": [
+        "Brandings, Logos, Social Media Posts, Websites, App UI/UX Design",
+        "Team of 2 (Brand Strategist, Designers, Developers)",
+        "2 weekly updates",
+        "Unlimited revisions",
+        "Avg 1–3 day delivery",
+        "Pause/cancel anytime"
+      ]
+    },
+    "plus": {
+      "name": "Plus",
+      "cta": "Design Today",
+      "features": [
+        "Everything in Standard +",
+        "Social Media Videos, Video Editing, Motion Design",
+        "Team of 3 (Brand Strategist, Designers, Animators)",
+        "3 weekly updates",
+        "Same SLA and benefits"
+      ]
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "What's the turnaround time?",
+        "answer": "Most requests are completed in 1-3 working days. Complex items may take longer."
+      },
+      {
+        "question": "Is the work really unlimited?",
+        "answer": "Yes! Add as many requests as you want, processed one at a time."
+      },
+      {
+        "question": "Can I pause my subscription?",
+        "answer": "Absolutely! Pause your billing and resume later. Unused days are banked."
+      }
+    ]
+  },
+  "footer": {
+    "about": "About us",
+    "services": "Services",
+    "testimonials": "Testimonials",
+    "bookCall": "Book a call",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "contact": "Contact",
+    "copyright": "© 2025 BrandHUB."
+  },
+  "whatsapp": {
+    "brandStrategy": "Hello! I'm interested in your brand strategy services. Can you provide more information?",
+    "brandDesign": "Hello! I'd like to learn more about your brand design services.",
+    "motionDesign": "Hello! I'm interested in your motion design services.",
+    "webDevelopment": "Hello! I'd like to discuss my web development needs.",
+    "packaging": "Hello! I'm interested in your packaging design services.",
+    "uiux": "Hello! I'd like to learn more about your UI/UX design services.",
+    "webDesign": "Hello! I'm interested in your web design services.",
+    "landingPages": "Hello! I'd like to discuss creating landing pages.",
+    "marketing": "Hello! I'm interested in your marketing content services.",
+    "3d": "Hello! I'd like to learn more about your 3D modeling services.",
+    "aiAutomation": "Hello! I'm interested in your AI automation services.",
+    "customAi": "Hello! I'd like to discuss custom AI solutions.",
+    "photography": "Hello! I'm interested in your studio photography services."
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Latest insights and updates",
+    "readMore": "Read More",
+    "readTime": "min read",
+    "publishedOn": "Published on",
+    "tags": "Tags",
+    "relatedPosts": "Related Posts",
+    "sharePost": "Share Post",
+    "backToBlog": "Back to Blog",
+    "noPostsFound": "No posts found",
+    "searchPlaceholder": "Search blog posts...",
+    "admin": {
+      "title": "Blog Admin",
+      "subtitle": "Manage your blog posts and analytics",
+      "newPost": "New Post",
+      "signOut": "Sign Out",
+      "posts": "Posts",
+      "analytics": "Analytics",
+      "noPosts": "No posts yet",
+      "createFirstPost": "Create your first blog post to get started",
+      "createPost": "Create Post",
+      "published": "Published",
+      "draft": "Draft",
+      "edit": "Edit",
+      "delete": "Delete",
+      "publish": "Publish",
+      "unpublish": "Unpublish",
+      "confirmDelete": "Are you sure you want to delete this post?",
+      "postPublished": "Post published",
+      "postUnpublished": "Post unpublished",
+      "postDeleted": "Post deleted"
+    },
+    "editor": {
+      "title": "Blog Editor",
+      "newPost": "New Post",
+      "editPost": "Edit Post",
+      "titlePlaceholder": "Post title...",
+      "slugPlaceholder": "post-slug",
+      "excerptPlaceholder": "Brief description of your post...",
+      "contentPlaceholder": "Write your blog post content here...",
+      "seoTitle": "SEO Title",
+      "seoDescription": "SEO Description",
+      "featuredImage": "Featured Image",
+      "videoUrl": "Video URL",
+      "tags": "Tags",
+      "tagsPlaceholder": "Add tags (press Enter to add)",
+      "saveDraft": "Save Draft",
+      "publishPost": "Publish Post",
+      "updatePost": "Update Post",
+      "cancel": "Cancel",
+      "postSaved": "Post saved successfully",
+      "postUpdated": "Post updated successfully",
+      "fillRequired": "Please fill in all required fields"
+    }
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "forgotPassword": "Forgot Password?",
+    "resetPassword": "Reset Password",
+    "backToSignIn": "Back to Sign In",
+    "dontHaveAccount": "Don't have an account?",
+    "alreadyHaveAccount": "Already have an account?",
+    "signInWithGoogle": "Sign in with Google",
+    "signUpWithGoogle": "Sign up with Google",
+    "checkEmail": "Check your email for the confirmation link",
+    "passwordReset": "Password reset email sent",
+    "invalidCredentials": "Invalid email or password",
+    "signInSuccess": "Welcome back!",
+    "signUpSuccess": "Account created successfully!"
+  },
+  "analytics": {
+    "title": "Analytics Dashboard",
+    "today": "Today",
+    "last7Days": "7 Days",
+    "last30Days": "30 Days",
+    "primaryKPIs": "Primary KPIs",
+    "secondaryKPIs": "Secondary KPIs",
+    "whatsappLeads": "WhatsApp Leads",
+    "pricingConversion": "Pricing → WA Conversion",
+    "qualifiedLeadRate": "Qualified Lead Rate",
+    "closeRate": "Close Rate",
+    "revenue": "Revenue",
+    "medianReplyTime": "Median Reply Time",
+    "sessions": "Sessions",
+    "users": "Users",
+    "acquisition": "Acquisition",
+    "pricing": "Pricing",
+    "whatsapp": "WhatsApp",
+    "blog": "Blog",
+    "pipeline": "Pipeline",
+    "topTrafficSources": "Top Traffic Sources",
+    "deviceBreakdown": "Device Breakdown",
+    "newVsReturning": "New vs Returning",
+    "conversionFunnel": "Conversion Funnel",
+    "ctaPerformance": "CTA Performance by Placement",
+    "pricingInsights": "Pricing Page Insights",
+    "totalPageViews": "Total Page Views",
+    "activeCTAPlacements": "Active CTA Placements",
+    "optimizationTips": "Optimization Tips",
+    "blogImpactSummary": "Blog Impact Summary",
+    "totalAssistedLeads": "Total Assisted Leads",
+    "avgScrollDepth": "Avg Scroll Depth",
+    "totalCTAClicks": "Total CTA Clicks",
+    "contentOptimizationTips": "Content Optimization Tips",
+    "leadsBySource": "Leads by Source",
+    "leadsByService": "Leads by Service",
+    "responseTimeAnalysis": "Response Time Analysis",
+    "performanceInsights": "Performance Insights",
+    "strengths": "Strengths",
+    "opportunities": "Opportunities",
+    "topPerformingPosts": "Top Performing Posts",
+    "pipelineHealth": "Pipeline Health",
+    "activePipeline": "Active Pipeline",
+    "potentialRevenue": "Potential Revenue",
+    "pipelineInsights": "Pipeline Insights",
+    "revenueBySource": "Revenue by Source",
+    "performanceByService": "Performance by Service",
+    "timeToCloseAnalysis": "Time to Close Analysis"
+  },
+  "common": {
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "previous": "Previous",
+    "next": "Next",
+    "yes": "Yes",
+    "no": "No",
+    "confirm": "Confirm",
+    "close": "Close",
+    "back": "Back",
+    "continue": "Continue",
+    "submit": "Submit",
+    "reset": "Reset",
+    "clear": "Clear",
+    "all": "All",
+    "none": "None",
+    "more": "More",
+    "less": "Less",
+    "show": "Show",
+    "hide": "Hide"
+  },
+  "errors": {
+    "404": {
+      "title": "Page Not Found",
+      "description": "The page you're looking for doesn't exist.",
+      "backHome": "Back to Home"
+    },
+    "500": {
+      "title": "Something went wrong",
+      "description": "We're working to fix this issue.",
+      "tryAgain": "Try Again"
+    },
+    "network": "Network error. Please check your connection.",
+    "unauthorized": "You are not authorized to access this resource.",
+    "forbidden": "Access denied.",
+    "validation": "Please check your input and try again."
+  }
+}
