@@ -68,10 +68,10 @@ const Blog = () => {
       {/* Hero Section */}
       <section className="bg-gradient-primary py-24 text-center">
         <div className="container mx-auto px-6">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+          <h1 className="text-5xl md:text-6xl font-bold text-primary-foreground mb-6">
             Our Blog
           </h1>
-          <p className="text-xl text-white/90 max-w-2xl mx-auto">
+          <p className="text-xl text-primary-foreground/90 max-w-2xl mx-auto">
             Insights, tips, and stories about design, development, and digital innovation
           </p>
         </div>

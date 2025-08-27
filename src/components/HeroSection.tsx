@@ -14,11 +14,11 @@ const HeroSection = () => {
         {/* Main Headlines */}
         <div className="space-y-8 animate-fade-in">
           <h1 className="text-6xl md:text-8xl font-bold leading-tight">
-            <span className="text-white">{t('hero.title')}</span>
+            <span className="text-primary-foreground">{t('hero.title')}</span>
             <br />
-            <span className="text-white">{t('hero.subtitle')}</span>
+            <span className="text-primary-foreground">{t('hero.subtitle')}</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
             {t('hero.description')}
           </p>
         </div>

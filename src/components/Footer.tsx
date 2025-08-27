@@ -31,7 +31,7 @@ const Footer = () => {
             {/* Logo */}
             <div className="flex items-center space-x-2">
               <div className="w-10 h-10 rounded-lg bg-gradient-primary flex items-center justify-center">
-                <span className="text-white font-bold text-xl">B</span>
+                <span className="text-primary-foreground font-bold text-xl">B</span>
               </div>
               <span className="text-2xl font-bold gradient-text">BrandHUB</span>
             </div>

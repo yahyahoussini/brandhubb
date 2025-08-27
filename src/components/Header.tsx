@@ -74,13 +74,13 @@ const Header = () => {
             <LanguageSwitcher />
             <Button
               variant="outline"
-              className="bg-gray-800/90 hover:bg-gray-700 text-white border-gray-600 rounded-xl px-6 py-2"
+              className="bg-gray-800/90 hover:bg-gray-700 text-primary-foreground border-gray-600 rounded-xl px-6 py-2"
               onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
             >
               {t('header.pricing')}
             </Button>
             <Button
-              className="bg-blue-600 hover:bg-blue-700 text-white border-0 rounded-xl px-6 py-2 flex items-center gap-2"
+              className="bg-blue-600 hover:bg-blue-700 text-primary-foreground border-0 rounded-xl px-6 py-2 flex items-center gap-2"
               onClick={() => window.open('https://cal.com/jeevan-singh/discovery', '_blank')}
             >
               <Phone size={16} />
