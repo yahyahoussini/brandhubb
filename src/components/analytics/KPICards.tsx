@@ -1,15 +1,15 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { 
-  TrendingUp, 
-  Users, 
-  MessageSquare, 
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import {
+  TrendingUp,
+  Users,
+  MessageSquare,
   DollarSign,
   Clock,
   Target,
   MousePointer,
-  CheckCircle
-} from "lucide-react";
+  CheckCircle,
+} from 'lucide-react';
 
 interface KPIData {
   sessions: number;
@@ -29,82 +29,82 @@ interface KPICardsProps {
 const KPICards = ({ data }: KPICardsProps) => {
   const kpis = [
     {
-      title: "WhatsApp Leads",
+      title: 'WhatsApp Leads',
       value: data.whatsappLeads,
       icon: MessageSquare,
-      color: "text-green-600",
-      bgColor: "bg-green-50",
-      trend: "+12%",
-      primary: true
+      color: 'text-green-600',
+      bgColor: 'bg-green-50',
+      trend: '+12%',
+      primary: true,
     },
     {
-      title: "Pricing → WA Conversion",
+      title: 'Pricing → WA Conversion',
       value: `${data.pricingWAConversion.toFixed(1)}%`,
       icon: MousePointer,
-      color: "text-blue-600", 
-      bgColor: "bg-blue-50",
-      trend: "+5%",
-      primary: true
+      color: 'text-blue-600',
+      bgColor: 'bg-blue-50',
+      trend: '+5%',
+      primary: true,
     },
     {
-      title: "Qualified Lead Rate",
+      title: 'Qualified Lead Rate',
       value: `${data.qualifiedLeadRate.toFixed(1)}%`,
       icon: Target,
-      color: "text-purple-600",
-      bgColor: "bg-purple-50",
-      trend: "+8%",
-      primary: true
+      color: 'text-purple-600',
+      bgColor: 'bg-purple-50',
+      trend: '+8%',
+      primary: true,
     },
     {
-      title: "Close Rate",
+      title: 'Close Rate',
       value: `${data.closeRate.toFixed(1)}%`,
       icon: CheckCircle,
-      color: "text-emerald-600",
-      bgColor: "bg-emerald-50",
-      trend: "+3%",
-      primary: true
+      color: 'text-emerald-600',
+      bgColor: 'bg-emerald-50',
+      trend: '+3%',
+      primary: true,
     },
     {
-      title: "Revenue",
+      title: 'Revenue',
       value: `$${data.revenue.toLocaleString()}`,
       icon: DollarSign,
-      color: "text-orange-600",
-      bgColor: "bg-orange-50",
-      trend: "+25%",
-      primary: true
+      color: 'text-orange-600',
+      bgColor: 'bg-orange-50',
+      trend: '+25%',
+      primary: true,
     },
     {
-      title: "Median Reply Time",
+      title: 'Median Reply Time',
       value: `${data.medianReplyTime}m`,
       icon: Clock,
-      color: "text-red-600",
-      bgColor: "bg-red-50", 
-      trend: "-2m",
-      primary: true
+      color: 'text-red-600',
+      bgColor: 'bg-red-50',
+      trend: '-2m',
+      primary: true,
     },
     {
-      title: "Sessions",
+      title: 'Sessions',
       value: data.sessions.toLocaleString(),
       icon: Users,
-      color: "text-gray-600",
-      bgColor: "bg-gray-50",
-      trend: "+18%",
-      primary: false
+      color: 'text-gray-600',
+      bgColor: 'bg-gray-50',
+      trend: '+18%',
+      primary: false,
     },
     {
-      title: "Users",
+      title: 'Users',
       value: data.users.toLocaleString(),
       icon: Users,
-      color: "text-indigo-600",
-      bgColor: "bg-indigo-50",
-      trend: "+15%",
-      primary: false
-    }
+      color: 'text-indigo-600',
+      bgColor: 'bg-indigo-50',
+      trend: '+15%',
+      primary: false,
+    },
   ];
 
   // Separate primary and secondary KPIs
-  const primaryKPIs = kpis.filter(kpi => kpi.primary);
-  const secondaryKPIs = kpis.filter(kpi => !kpi.primary);
+  const primaryKPIs = kpis.filter((kpi) => kpi.primary);
+  const secondaryKPIs = kpis.filter((kpi) => !kpi.primary);
 
   return (
     <div className="space-y-4">
@@ -125,14 +125,15 @@ const KPICards = ({ data }: KPICardsProps) => {
               <CardContent>
                 <div className="flex items-center justify-between">
                   <div className="text-2xl font-bold">{kpi.value}</div>
-                  <Badge 
-                    variant="secondary" 
+                  <Badge
+                    variant="secondary"
                     className={`text-xs ${
-                      kpi.trend.startsWith('+') 
-                        ? 'text-green-700 bg-green-100' 
-                        : kpi.trend.startsWith('-') && kpi.title.includes('Reply')
-                        ? 'text-green-700 bg-green-100'  // Negative reply time is good
-                        : 'text-red-700 bg-red-100'
+                      kpi.trend.startsWith('+')
+                        ? 'text-green-700 bg-green-100'
+                        : kpi.trend.startsWith('-') &&
+                            kpi.title.includes('Reply')
+                          ? 'text-green-700 bg-green-100' // Negative reply time is good
+                          : 'text-red-700 bg-red-100'
                     }`}
                   >
                     <TrendingUp className="w-3 h-3 mr-1" />

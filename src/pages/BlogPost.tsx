@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
-import { supabase } from "@/integrations/supabase/client";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Calendar, User } from "lucide-react";
-import { format } from "date-fns";
+import { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { supabase } from '@/integrations/supabase/client';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { ArrowLeft, Calendar, User } from 'lucide-react';
+import { format } from 'date-fns';
 
 interface BlogPost {
   id: string;
@@ -94,15 +94,13 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      
+
       {/* SEO Meta Tags */}
-      {post.seo_title && (
-        <title>{post.seo_title}</title>
-      )}
+      {post.seo_title && <title>{post.seo_title}</title>}
       {post.seo_description && (
         <meta name="description" content={post.seo_description} />
       )}
-      
+
       <article className="py-12">
         <div className="container mx-auto px-6">
           {/* Back Button */}
@@ -126,20 +124,21 @@ const BlogPost = () => {
                 ))}
               </div>
             )}
-            
+
             <h1 className="text-4xl md:text-5xl font-bold mb-6 max-w-4xl mx-auto leading-tight">
               {post.title}
             </h1>
-            
+
             {post.excerpt && (
               <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
                 {post.excerpt}
               </p>
             )}
-            
+
             <div className="flex items-center justify-center text-muted-foreground">
               <Calendar className="w-4 h-4 mr-2" />
-              {post.published_at && format(new Date(post.published_at), 'MMMM dd, yyyy')}
+              {post.published_at &&
+                format(new Date(post.published_at), 'MMMM dd, yyyy')}
             </div>
           </header>
 
@@ -162,7 +161,11 @@ const BlogPost = () => {
                   src={post.video_url}
                   controls
                   className="w-full h-full rounded-2xl"
-                  poster={post.featured_image ? getImageUrl(post.featured_image) : undefined}
+                  poster={
+                    post.featured_image
+                      ? getImageUrl(post.featured_image)
+                      : undefined
+                  }
                 />
               </div>
             </div>
@@ -170,7 +173,7 @@ const BlogPost = () => {
 
           {/* Article Content */}
           <div className="prose prose-lg max-w-4xl mx-auto">
-            <div 
+            <div
               dangerouslySetInnerHTML={{ __html: post.content }}
               className="leading-relaxed"
             />
@@ -187,7 +190,7 @@ const BlogPost = () => {
           </footer>
         </div>
       </article>
-      
+
       <Footer />
     </div>
   );

@@ -1,14 +1,14 @@
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Home, ArrowLeft } from "lucide-react";
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Button } from '@/components/ui/button';
+import { Home, ArrowLeft } from 'lucide-react';
 
 const NotFound = () => {
   const location = useLocation();
 
   useEffect(() => {
     console.error(
-      "404 Error: User attempted to access non-existent route:",
+      '404 Error: User attempted to access non-existent route:',
       location.pathname
     );
   }, [location.pathname]);
@@ -29,26 +29,26 @@ const NotFound = () => {
             Page <span className="gradient-text">not found</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-md mx-auto">
-            Sorry, we couldn't find the page you're looking for. 
-            It might have been moved or doesn't exist.
+            Sorry, we couldn't find the page you're looking for. It might have
+            been moved or doesn't exist.
           </p>
         </div>
 
         {/* Actions */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button 
-            variant="hero" 
+          <Button
+            variant="hero"
             size="lg"
-            onClick={() => window.location.href = "/"}
+            onClick={() => (window.location.href = '/')}
           >
             <Home className="w-5 h-5 mr-2" />
             Back to Home
           </Button>
-          
-          <Button 
-            variant="glass" 
+
+          <Button
+            variant="glass"
             size="lg"
-            onClick={() => window.history.back()}
+            onClick={() => { window.history.back(); }}
           >
             <ArrowLeft className="w-5 h-5 mr-2" />
             Go Back
@@ -57,8 +57,11 @@ const NotFound = () => {
 
         {/* Help Text */}
         <p className="text-sm text-muted-foreground mt-8">
-          Need help? Contact us at{" "}
-          <a href="mailto:info@brandhub.co.ke" className="text-accent hover:underline">
+          Need help? Contact us at{' '}
+          <a
+            href="mailto:info@brandhub.co.ke"
+            className="text-accent hover:underline"
+          >
             info@brandhub.co.ke
           </a>
         </p>

@@ -1,25 +1,51 @@
-import { Instagram, Music } from "lucide-react";
+import { Instagram, Music } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const { t } = useTranslation();
-  
+
   const navigation = [
-    { name: t('footer.about'), href: "#about", onClick: () => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }) },
-    { name: t('footer.services'), href: "#services", onClick: () => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' }) },
-    { name: t('footer.testimonials'), href: "#testimonials", onClick: () => document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' }) },
-    { name: t('footer.bookCall'), href: "#", onClick: () => window.open('https://cal.com/jeevan-singh/discovery', '_blank') },
+    {
+      name: t('footer.about'),
+      href: '#about',
+      onClick: () =>
+        document
+          .getElementById('about')
+          ?.scrollIntoView({ behavior: 'smooth' }),
+    },
+    {
+      name: t('footer.services'),
+      href: '#services',
+      onClick: () =>
+        document
+          .getElementById('services')
+          ?.scrollIntoView({ behavior: 'smooth' }),
+    },
+    {
+      name: t('footer.testimonials'),
+      href: '#testimonials',
+      onClick: () =>
+        document
+          .getElementById('testimonials')
+          ?.scrollIntoView({ behavior: 'smooth' }),
+    },
+    {
+      name: t('footer.bookCall'),
+      href: '#',
+      onClick: () =>
+        window.open('https://cal.com/jeevan-singh/discovery', '_blank'),
+    },
   ];
 
   const legal = [
-    { name: t('footer.terms'), href: "/terms" },
-    { name: t('footer.privacy'), href: "/privacy" },
+    { name: t('footer.terms'), href: '/terms' },
+    { name: t('footer.privacy'), href: '/privacy' },
   ];
 
   const social = [
-    { name: "Instagram", icon: Instagram, href: "https://instagram.com" },
-    { name: "TikTok", icon: Music, href: "https://tiktok.com" },
+    { name: 'Instagram', icon: Instagram, href: 'https://instagram.com' },
+    { name: 'TikTok', icon: Music, href: 'https://tiktok.com' },
   ];
 
   return (
@@ -38,15 +64,18 @@ const Footer = () => {
 
             {/* Description */}
             <p className="text-muted-foreground leading-relaxed max-w-md">
-              Design subscription to scale your business. 
-              Professional creative services with unlimited revisions and fast turnaround times.
+              Design subscription to scale your business. Professional creative
+              services with unlimited revisions and fast turnaround times.
             </p>
 
             {/* Contact */}
             <div className="space-y-2">
               <p className="text-sm font-semibold">{t('footer.contact')}</p>
               <p className="text-muted-foreground">
-                <a href="mailto:info@brandhub.co.ke" className="animated-underline hover:text-accent">
+                <a
+                  href="mailto:info@brandhub.co.ke"
+                  className="animated-underline hover:text-accent"
+                >
                   info@brandhub.co.ke
                 </a>
               </p>

@@ -1,17 +1,17 @@
 import { useTranslation } from 'react-i18next';
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 import { Globe } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from '@/components/ui/dropdown-menu';
 
 const languages = [
   { code: 'fr', name: 'Français', flag: '🇫🇷' },
   { code: 'en', name: 'English', flag: '🇺🇸' },
-  { code: 'ar', name: 'العربية', flag: '🇸🇦' }
+  { code: 'ar', name: 'العربية', flag: '🇸🇦' },
 ];
 
 const LanguageSwitcher = () => {
@@ -29,12 +29,17 @@ const LanguageSwitcher = () => {
     }
   };
 
-  const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
+  const currentLanguage =
+    languages.find((lang) => lang.code === i18n.language) || languages[0];
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="sm" className="gap-2 text-white hover:bg-white/10">
+        <Button
+          variant="ghost"
+          size="sm"
+          className="gap-2 text-white hover:bg-white/10"
+        >
           <Globe className="w-4 h-4" />
           <span>{currentLanguage.flag}</span>
         </Button>
@@ -43,7 +48,7 @@ const LanguageSwitcher = () => {
         {languages.map((language) => (
           <DropdownMenuItem
             key={language.code}
-            onClick={() => changeLanguage(language.code)}
+            onClick={() => { changeLanguage(language.code); }}
             className="flex items-center gap-2 text-white hover:bg-gray-800 cursor-pointer"
           >
             <span>{language.flag}</span>

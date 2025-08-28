@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { Sparkles, Users, Award } from "lucide-react";
+import { Button } from '@/components/ui/button';
+import { Sparkles, Users, Award } from 'lucide-react';
 
 const CustomProjectSection = () => {
   return (
@@ -14,13 +14,15 @@ const CustomProjectSection = () => {
           {/* Headline */}
           <h2 className="text-4xl md:text-5xl font-bold">
             Need Something <span className="gradient-text-accent">Custom?</span>
-            <br />Let's Build It Together.
+            <br />
+            Let's Build It Together.
           </h2>
 
           {/* Description */}
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            One-time projects for comprehensive branding overhauls, complex web applications, 
-            or specialized creative campaigns. Starts at a custom quote based on your needs.
+            One-time projects for comprehensive branding overhauls, complex web
+            applications, or specialized creative campaigns. Starts at a custom
+            quote based on your needs.
           </p>
 
           {/* Trust Indicators */}
@@ -29,24 +31,30 @@ const CustomProjectSection = () => {
               <Users className="w-8 h-8 text-success" />
               <div className="text-left">
                 <div className="font-bold text-lg">100's of startups</div>
-                <div className="text-muted-foreground text-sm">trust our process</div>
+                <div className="text-muted-foreground text-sm">
+                  trust our process
+                </div>
               </div>
             </div>
-            
+
             <div className="flex items-center space-x-4">
               <Award className="w-8 h-8 text-success" />
               <div className="text-left">
                 <div className="font-bold text-lg">7+ years</div>
-                <div className="text-muted-foreground text-sm">of brand expertise</div>
+                <div className="text-muted-foreground text-sm">
+                  of brand expertise
+                </div>
               </div>
             </div>
           </div>
 
           {/* CTA */}
-          <Button 
-            variant="accent" 
+          <Button
+            variant="accent"
             size="hero"
-            onClick={() => window.open('https://cal.com/jeevan-singh/discovery', '_blank')}
+            onClick={() =>
+              window.open('https://cal.com/jeevan-singh/discovery', '_blank')
+            }
           >
             Book a Call
           </Button>

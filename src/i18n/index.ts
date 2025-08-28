@@ -10,7 +10,7 @@ import ar from './locales/ar.json';
 const resources = {
   fr: { translation: fr },
   en: { translation: en },
-  ar: { translation: ar }
+  ar: { translation: ar },
 };
 
 i18n
@@ -21,15 +21,15 @@ i18n
     fallbackLng: 'fr', // French as default
     lng: 'fr', // Set French as the initial language
     debug: false,
-    
+
     interpolation: {
       escapeValue: false,
     },
-    
+
     detection: {
       order: ['localStorage', 'navigator'],
       caches: ['localStorage'],
-    }
+    },
   });
 
 export default i18n;

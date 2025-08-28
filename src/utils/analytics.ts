@@ -1,4 +1,4 @@
-import { supabase } from "@/integrations/supabase/client";
+import { supabase } from '@/integrations/supabase/client';
 import { v4 as uuidv4 } from 'uuid';
 
 interface SessionInfo {
@@ -20,7 +20,7 @@ export class Analytics {
 
   constructor() {
     this.sessionId = this.getOrCreateSessionId();
-    this.initializeSession();
+    void this.initializeSession();
   }
 
   private getOrCreateSessionId(): string {
@@ -36,47 +36,47 @@ export class Analytics {
     try {
       // Get UTM parameters from URL
       const urlParams = new URLSearchParams(window.location.search);
-      
+
       // Get or set session info
       const sessionInfo: SessionInfo = {
         id: this.sessionId,
-        utm_source: urlParams.get('utm_source') || undefined,
-        utm_medium: urlParams.get('utm_medium') || undefined,
-        utm_campaign: urlParams.get('utm_campaign') || undefined,
-        utm_content: urlParams.get('utm_content') || undefined,
-        utm_term: urlParams.get('utm_term') || undefined,
+        utm_source: urlParams.get('utm_source') ?? undefined,
+        utm_medium: urlParams.get('utm_medium') ?? undefined,
+        utm_campaign: urlParams.get('utm_campaign') ?? undefined,
+        utm_content: urlParams.get('utm_content') ?? undefined,
+        utm_term: urlParams.get('utm_term') ?? undefined,
         device_type: this.getDeviceType(),
         landing_page: window.location.pathname,
-        referrer: document.referrer || undefined,
+        referrer: document.referrer ?? undefined,
       };
 
       // Store UTM params in session for future events
       if (sessionInfo.utm_source) {
-        sessionStorage.setItem('analytics_utm', JSON.stringify({
-          utm_source: sessionInfo.utm_source,
-          utm_medium: sessionInfo.utm_medium,
-          utm_campaign: sessionInfo.utm_campaign,
-          utm_content: sessionInfo.utm_content,
-          utm_term: sessionInfo.utm_term,
-        }));
+        sessionStorage.setItem(
+          'analytics_utm',
+          JSON.stringify({
+            utm_source: sessionInfo.utm_source,
+            utm_medium: sessionInfo.utm_medium,
+            utm_campaign: sessionInfo.utm_campaign,
+            utm_content: sessionInfo.utm_content,
+            utm_term: sessionInfo.utm_term,
+          })
+        );
       }
 
       // Create or update session
-      await supabase
-        .from('analytics_sessions')
-        .upsert({
-          id: this.sessionId,
-          utm_source: sessionInfo.utm_source,
-          utm_medium: sessionInfo.utm_medium,
-          utm_campaign: sessionInfo.utm_campaign,
-          utm_content: sessionInfo.utm_content,
-          utm_term: sessionInfo.utm_term,
-          device_type: sessionInfo.device_type,
-          landing_page: sessionInfo.landing_page,
-          referrer: sessionInfo.referrer,
-          page_views: 1,
-        });
-
+      await supabase.from('analytics_sessions').upsert({
+        id: this.sessionId,
+        utm_source: sessionInfo.utm_source,
+        utm_medium: sessionInfo.utm_medium,
+        utm_campaign: sessionInfo.utm_campaign,
+        utm_content: sessionInfo.utm_content,
+        utm_term: sessionInfo.utm_term,
+        device_type: sessionInfo.device_type,
+        landing_page: sessionInfo.landing_page,
+        referrer: sessionInfo.referrer,
+        page_views: 1,
+      });
     } catch (error) {
       console.error('Analytics initialization error:', error);
     }
@@ -87,39 +87,41 @@ export class Analytics {
     if (/tablet|ipad|playbook|silk/i.test(userAgent)) {
       return 'tablet';
     }
-    if (/mobile|iphone|ipod|android|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile/i.test(userAgent)) {
+    if (
+      /mobile|iphone|ipod|android|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile/i.test(
+        userAgent
+      )
+    ) {
       return 'mobile';
     }
     return 'desktop';
   }
 
-  private getStoredUTM() {
+  private getStoredUTM(): Record<string, string> {
     try {
       const stored = sessionStorage.getItem('analytics_utm');
-      return stored ? JSON.parse(stored) : {};
+      return stored ? JSON.parse(stored) as Record<string, string> : {};
     } catch {
       return {};
     }
   }
 
-  async track(eventName: string, properties: Record<string, any> = {}) {
+  async track(eventName: string, properties: Record<string, unknown> = {}) {
     try {
       const utm = this.getStoredUTM();
-      
-      await supabase
-        .from('analytics_events')
-        .insert({
-          event_name: eventName,
-          session_id: this.sessionId,
-          user_id: this.userId,
-          props: {
-            ...properties,
-            ...utm,
-            page: window.location.pathname,
-            user_agent: navigator.userAgent,
-            timestamp: new Date().toISOString(),
-          }
-        });
+
+      await supabase.from('analytics_events').insert({
+        event_name: eventName,
+        session_id: this.sessionId,
+        user_id: this.userId,
+        props: {
+          ...properties,
+          ...utm,
+          page: window.location.pathname,
+          user_agent: navigator.userAgent,
+          timestamp: new Date().toISOString(),
+        },
+      });
     } catch (error) {
       console.error('Analytics tracking error:', error);
     }
@@ -127,20 +129,22 @@ export class Analytics {
 
   async pageView(path?: string) {
     await this.track('page_view', {
-      path: path || window.location.pathname,
+      path: path ?? window.location.pathname,
       title: document.title,
       referrer: document.referrer,
     });
 
     // Update session page views using RPC function
     try {
-      await supabase.rpc('increment_page_views', { session_id: this.sessionId });
+      await supabase.rpc('increment_page_views', {
+        session_id: this.sessionId,
+      });
     } catch (error) {
       console.error('Error incrementing page views:', error);
     }
   }
 
-  async pricingView(plansVisible: string[], faqOpened: boolean = false) {
+  async pricingView(plansVisible: string[], faqOpened = false) {
     await this.track('pricing_view', {
       plans_visible: plansVisible,
       faq_opened: faqOpened,
@@ -148,7 +152,7 @@ export class Analytics {
   }
 
   async pricingCTAClick(placement: string, service: string, clickId?: string) {
-    const cId = clickId || uuidv4();
+    const cId = clickId ?? uuidv4();
     await this.track('pricing_cta_click', {
       placement,
       service,
@@ -159,7 +163,12 @@ export class Analytics {
     return cId;
   }
 
-  async whatsappRedirect(clickId: string, service: string, placement: string, destinationPhone: string) {
+  async whatsappRedirect(
+    clickId: string,
+    service: string,
+    placement: string,
+    destinationPhone: string
+  ) {
     await this.track('whatsapp_redirect', {
       click_id: clickId,
       service,
@@ -207,11 +216,11 @@ let currentPath = window.location.pathname;
 const observer = new MutationObserver(() => {
   if (window.location.pathname !== currentPath) {
     currentPath = window.location.pathname;
-    analytics.pageView();
+    void analytics.pageView();
   }
 });
 
 observer.observe(document.body, {
   childList: true,
-  subtree: true
+  subtree: true,
 });

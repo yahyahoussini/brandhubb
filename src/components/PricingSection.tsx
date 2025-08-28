@@ -1,31 +1,33 @@
-import { Button } from "@/components/ui/button";
-import { Check, Zap, Crown, ExternalLink } from "lucide-react";
+import { Button } from '@/components/ui/button';
+import { Check, Zap, Crown, ExternalLink } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const PricingSection = () => {
   const { t } = useTranslation();
-  
+
   const plans = [
     {
       name: t('pricing.standard.name'),
-      price: "$2,997",
-      period: "per month",
-      description: "Perfect for startups and growing businesses",
-      features: t('pricing.standard.features', { returnObjects: true }) as string[],
+      price: '$2,997',
+      period: 'per month',
+      description: 'Perfect for startups and growing businesses',
+      features: t('pricing.standard.features', {
+        returnObjects: true,
+      }) as string[],
       cta: t('pricing.standard.cta'),
       popular: false,
-      icon: Zap
+      icon: Zap,
     },
     {
-      name: t('pricing.plus.name'), 
-      price: "$4,997",
-      period: "per month",
-      description: "For established companies needing video content",
+      name: t('pricing.plus.name'),
+      price: '$4,997',
+      period: 'per month',
+      description: 'For established companies needing video content',
       features: t('pricing.plus.features', { returnObjects: true }) as string[],
       cta: t('pricing.plus.cta'),
       popular: true,
-      icon: Crown
-    }
+      icon: Crown,
+    },
   ];
 
   const handleSubscribe = (planName: string) => {
@@ -44,11 +46,14 @@ const PricingSection = () => {
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
             Unlimited work, one request at a time. Pause or cancel anytime.
           </p>
-          
+
           {/* Trial Info */}
           <div className="glass-card inline-block px-8 py-4 mb-12">
             <p className="text-sm">
-              <span className="gradient-text-accent font-semibold">Try for 7 days</span> → 60% refund if not impressed
+              <span className="gradient-text-accent font-semibold">
+                Try for 7 days
+              </span>{' '}
+              → 60% refund if not impressed
             </p>
           </div>
         </div>
@@ -66,31 +71,46 @@ const PricingSection = () => {
                     </div>
                   </div>
                 )}
-                
-                <div className={`glass-card card-hover h-full p-8 ${
-                  plan.popular ? 'ring-2 ring-accent glow-accent' : ''
-                }`}>
+
+                <div
+                  className={`glass-card card-hover h-full p-8 ${
+                    plan.popular ? 'ring-2 ring-accent glow-accent' : ''
+                  }`}
+                >
                   {/* Plan Header */}
                   <div className="text-center mb-8">
-                    <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-6 ${
-                      plan.popular ? 'bg-gradient-accent' : 'bg-gradient-primary'
-                    }`}>
+                    <div
+                      className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-6 ${
+                        plan.popular
+                          ? 'bg-gradient-accent'
+                          : 'bg-gradient-primary'
+                      }`}
+                    >
                       <Icon className="w-8 h-8 text-white" />
                     </div>
-                    
+
                     <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                    <p className="text-muted-foreground mb-6">{plan.description}</p>
-                    
+                    <p className="text-muted-foreground mb-6">
+                      {plan.description}
+                    </p>
+
                     <div className="mb-6">
-                      <span className="text-5xl font-bold gradient-text">{plan.price}</span>
-                      <span className="text-muted-foreground ml-2">{plan.period}</span>
+                      <span className="text-5xl font-bold gradient-text">
+                        {plan.price}
+                      </span>
+                      <span className="text-muted-foreground ml-2">
+                        {plan.period}
+                      </span>
                     </div>
                   </div>
 
                   {/* Features List */}
                   <div className="space-y-4 mb-8">
                     {plan.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-start space-x-3">
+                      <div
+                        key={featureIndex}
+                        className="flex items-start space-x-3"
+                      >
                         <Check className="w-5 h-5 text-success mt-0.5 flex-shrink-0" />
                         <span className="text-sm">{feature}</span>
                       </div>
@@ -99,10 +119,10 @@ const PricingSection = () => {
 
                   {/* CTA Button */}
                   <Button
-                    variant={plan.popular ? "accent" : "hero"}
-                    size="hero" 
+                    variant={plan.popular ? 'accent' : 'hero'}
+                    size="hero"
                     className="w-full"
-                    onClick={() => handleSubscribe(plan.name)}
+                    onClick={() => { handleSubscribe(plan.name); }}
                   >
                     {plan.cta}
                     <ExternalLink className="w-5 h-5 ml-2" />
@@ -118,11 +138,12 @@ const PricingSection = () => {
           <div className="glass-card p-6 max-w-3xl mx-auto">
             <h3 className="text-xl font-bold mb-4">Pause Anytime Policy</h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Billing paused, unused days carry over. 31-day billing cycles. 
-              For example: use 21 days, pause subscription, remaining 10 days saved for when you return.
+              Billing paused, unused days carry over. 31-day billing cycles. For
+              example: use 21 days, pause subscription, remaining 10 days saved
+              for when you return.
             </p>
           </div>
-          
+
           <p className="text-sm text-muted-foreground">
             No contracts. Cancel anytime. Unused time is always preserved.
           </p>

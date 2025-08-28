@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
-import { supabase } from "@/integrations/supabase/client";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { ArrowDown, MousePointer, Eye, Clock } from "lucide-react";
-import { getStringProp } from "../../utils/analyticsTypes";
+import { useState, useEffect, useCallback } from 'react';
+import { supabase } from '@/integrations/supabase/client';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { ArrowDown, MousePointer, Eye } from 'lucide-react';
+import { getStringProp } from '../../utils/analyticsTypes';
 
 interface FunnelStep {
   name: string;
@@ -12,91 +12,114 @@ interface FunnelStep {
   dropoff?: number;
 }
 
+interface CtaPerformanceData {
+  clicks: number;
+  services: Set<string>;
+}
+
 const PricingFunnel = () => {
   const [funnelData, setFunnelData] = useState<FunnelStep[]>([]);
-  const [ctaPerformance, setCTAPerformance] = useState<Record<string, any>>({});
+  const [ctaPerformance, setCTAPerformance] = useState<
+    Record<string, CtaPerformanceData>
+  >({});
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchPricingAnalytics();
-  }, []);
-
-  const fetchPricingAnalytics = async () => {
+  const fetchPricingAnalytics = useCallback(async () => {
     try {
       // Get pricing page views
       const { data: pricingViews } = await supabase
         .from('analytics_events')
         .select('*')
         .eq('event_name', 'pricing_view')
-        .gte('occurred_at', new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString());
+        .gte(
+          'occurred_at',
+          new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString()
+        );
 
       // Get WhatsApp clicks from pricing
       const { data: waClicks } = await supabase
         .from('analytics_events')
         .select('*')
         .eq('event_name', 'pricing_cta_click')
-        .gte('occurred_at', new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString());
+        .gte(
+          'occurred_at',
+          new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString()
+        );
 
       // Get page views for landing pages
       const { data: pageViews } = await supabase
         .from('analytics_events')
         .select('*')
         .eq('event_name', 'page_view')
-        .gte('occurred_at', new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString());
+        .gte(
+          'occurred_at',
+          new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString()
+        );
 
       // Calculate funnel
-      const landingViews = pageViews?.filter(pv => {
-        const path = getStringProp(pv.props, 'path');
-        return path === '/' || path.startsWith('/services');
-      }).length || 0;
+      const landingViews =
+        pageViews?.filter((pv) => {
+          const path = getStringProp(pv.props, 'path');
+          return path === '/' || path.startsWith('/services');
+        }).length ?? 0;
 
-      const pricingPageViews = pricingViews?.length || 0;
-      const whatsappClicks = waClicks?.length || 0;
+      const pricingPageViews = pricingViews?.length ?? 0;
+      const whatsappClicks = waClicks?.length ?? 0;
 
       const funnel: FunnelStep[] = [
         {
           name: 'Landing Page Views',
           count: landingViews,
-          percentage: 100
+          percentage: 100,
         },
         {
-          name: 'Pricing Page Views', 
+          name: 'Pricing Page Views',
           count: pricingPageViews,
-          percentage: landingViews > 0 ? (pricingPageViews / landingViews) * 100 : 0,
-          dropoff: landingViews - pricingPageViews
+          percentage:
+            landingViews > 0 ? (pricingPageViews / landingViews) * 100 : 0,
+          dropoff: landingViews - pricingPageViews,
         },
         {
           name: 'WhatsApp Clicks',
           count: whatsappClicks,
-          percentage: pricingPageViews > 0 ? (whatsappClicks / pricingPageViews) * 100 : 0,
-          dropoff: pricingPageViews - whatsappClicks
-        }
+          percentage:
+            pricingPageViews > 0
+              ? (whatsappClicks / pricingPageViews) * 100
+              : 0,
+          dropoff: pricingPageViews - whatsappClicks,
+        },
       ];
 
       setFunnelData(funnel);
 
       // Calculate CTA performance by placement
-      const ctaByPlacement = waClicks?.reduce((acc: Record<string, any>, click) => {
-        const placement = getStringProp(click.props, 'placement', 'unknown');
-        if (!acc[placement]) {
-          acc[placement] = { clicks: 0, services: new Set() };
-        }
-        acc[placement].clicks++;
-        const service = getStringProp(click.props, 'service');
-        if (service) {
-          acc[placement].services.add(service);
-        }
-        return acc;
-      }, {});
+      const ctaByPlacement = waClicks?.reduce(
+        (acc: Record<string, CtaPerformanceData>, click) => {
+          const placement = getStringProp(click.props, 'placement', 'unknown');
+          if (!acc[placement]) {
+            acc[placement] = { clicks: 0, services: new Set() };
+          }
+          acc[placement].clicks++;
+          const service = getStringProp(click.props, 'service');
+          if (service) {
+            acc[placement].services.add(service);
+          }
+          return acc;
+        },
+        {}
+      );
 
-      setCTAPerformance(ctaByPlacement || {});
-
+      setCTAPerformance(ctaByPlacement ?? {});
     } catch (error) {
       console.error('Error fetching pricing analytics:', error);
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    void fetchPricingAnalytics();
+  }, [fetchPricingAnalytics]);
 
   if (loading) {
     return (
@@ -115,6 +138,11 @@ const PricingFunnel = () => {
     );
   }
 
+  const maxClicks = Math.max(
+    1,
+    ...Object.values(ctaPerformance).map((d) => d.clicks)
+  );
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
       {/* Conversion Funnel */}
@@ -132,11 +160,15 @@ const PricingFunnel = () => {
                 <div className="flex items-center justify-between mb-2">
                   <span className="font-medium">{step.name}</span>
                   <div className="flex items-center gap-2">
-                    <Badge variant="outline">{step.count.toLocaleString()}</Badge>
-                    <Badge variant="secondary">{step.percentage.toFixed(1)}%</Badge>
+                    <Badge variant="outline">
+                      {step.count.toLocaleString()}
+                    </Badge>
+                    <Badge variant="secondary">
+                      {`${step.percentage.toFixed(1)}%`}
+                    </Badge>
                   </div>
                 </div>
-                
+
                 {/* Progress bar */}
                 <div className="w-full bg-gray-200 rounded-full h-3 mb-2">
                   <div
@@ -149,7 +181,7 @@ const PricingFunnel = () => {
                 {step.dropoff !== undefined && step.dropoff > 0 && (
                   <div className="text-sm text-red-600 flex items-center gap-1">
                     <ArrowDown className="h-3 w-3" />
-                    {step.dropoff.toLocaleString()} users dropped off
+                    {`${step.dropoff.toLocaleString()} users dropped off`}
                   </div>
                 )}
 
@@ -179,18 +211,18 @@ const PricingFunnel = () => {
               <div key={placement} className="border rounded-lg p-4">
                 <div className="flex items-center justify-between mb-2">
                   <h4 className="font-medium capitalize">{placement}</h4>
-                  <Badge>{data.clicks} clicks</Badge>
+                  <Badge>{`${data.clicks} clicks`}</Badge>
                 </div>
-                
+
                 <div className="text-sm text-muted-foreground">
                   Services: {Array.from(data.services).join(', ') || 'Various'}
                 </div>
-                
+
                 <div className="mt-2 w-full bg-gray-200 rounded-full h-2">
                   <div
                     className="bg-green-500 h-2 rounded-full"
-                    style={{ 
-                      width: `${Math.min(100, (data.clicks / Math.max(...Object.values(ctaPerformance).map((d: any) => d.clicks))) * 100)}%` 
+                    style={{
+                      width: `${(data.clicks / maxClicks) * 100}%`,
                     }}
                   />
                 </div>
@@ -218,30 +250,41 @@ const PricingFunnel = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center">
               <div className="text-2xl font-bold text-primary">
-                {funnelData.find(f => f.name === 'Pricing Page Views')?.count || 0}
+                {funnelData.find((f) => f.name === 'Pricing Page Views')
+                  ?.count ?? 0}
               </div>
               <p className="text-sm text-muted-foreground">Total Page Views</p>
             </div>
-            
+
             <div className="text-center">
               <div className="text-2xl font-bold text-green-600">
-                {funnelData.find(f => f.name === 'WhatsApp Clicks')?.percentage.toFixed(1) || 0}%
+                {`${
+                  funnelData
+                    .find((f) => f.name === 'WhatsApp Clicks')
+                    ?.percentage.toFixed(1) ?? 0
+                }%`}
               </div>
-              <p className="text-sm text-muted-foreground">Pricing → WA Conversion</p>
+              <p className="text-sm text-muted-foreground">
+                Pricing → WA Conversion
+              </p>
             </div>
 
             <div className="text-center">
               <div className="text-2xl font-bold text-blue-600">
                 {Object.keys(ctaPerformance).length}
               </div>
-              <p className="text-sm text-muted-foreground">Active CTA Placements</p>
+              <p className="text-sm text-muted-foreground">
+                Active CTA Placements
+              </p>
             </div>
           </div>
 
           <div className="mt-6 p-4 bg-blue-50 rounded-lg">
             <h4 className="font-medium mb-2">Optimization Tips:</h4>
             <ul className="text-sm space-y-1 text-muted-foreground">
-              <li>• Test different CTA placements to improve conversion rates</li>
+              <li>
+                • Test different CTA placements to improve conversion rates
+              </li>
               <li>• Add scroll depth tracking to see where users drop off</li>
               <li>• A/B test pricing page layouts and messaging</li>
               <li>• Consider exit-intent popups for users who don't convert</li>

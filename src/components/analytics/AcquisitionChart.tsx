@@ -1,9 +1,9 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { BarChart3, Globe, Smartphone, Users } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { BarChart3, Globe, Smartphone, Users } from 'lucide-react';
 
 interface AcquisitionData {
-  topSources: Array<{ source: string; sessions: number; conversions: number }>;
+  topSources: { source: string; sessions: number; conversions: number }[];
   deviceBreakdown: { mobile: number; desktop: number; tablet: number };
   newVsReturning: { new: number; returning: number };
 }
@@ -13,7 +13,10 @@ interface AcquisitionChartProps {
 }
 
 const AcquisitionChart = ({ data }: AcquisitionChartProps) => {
-  const totalDevices = data.deviceBreakdown.mobile + data.deviceBreakdown.desktop + data.deviceBreakdown.tablet;
+  const totalDevices =
+    data.deviceBreakdown.mobile +
+    data.deviceBreakdown.desktop +
+    data.deviceBreakdown.tablet;
   const totalUsers = data.newVsReturning.new + data.newVsReturning.returning;
 
   return (
@@ -29,9 +32,15 @@ const AcquisitionChart = ({ data }: AcquisitionChartProps) => {
         <CardContent>
           <div className="space-y-4">
             {data.topSources.map((source, index) => {
-              const conversionRate = source.sessions > 0 ? (source.conversions / source.sessions) * 100 : 0;
+              const conversionRate =
+                source.sessions > 0
+                  ? (source.conversions / source.sessions) * 100
+                  : 0;
               return (
-                <div key={source.source} className="flex items-center justify-between">
+                <div
+                  key={source.source}
+                  className="flex items-center justify-between"
+                >
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-xs font-medium">
                       {index + 1}
@@ -71,7 +80,8 @@ const AcquisitionChart = ({ data }: AcquisitionChartProps) => {
         <CardContent>
           <div className="space-y-4">
             {Object.entries(data.deviceBreakdown).map(([device, count]) => {
-              const percentage = totalDevices > 0 ? (count / totalDevices) * 100 : 0;
+              const percentage =
+                totalDevices > 0 ? (count / totalDevices) * 100 : 0;
               return (
                 <div key={device} className="space-y-2">
                   <div className="flex items-center justify-between">
@@ -104,10 +114,19 @@ const AcquisitionChart = ({ data }: AcquisitionChartProps) => {
         <CardContent>
           <div className="space-y-4">
             {[
-              { label: 'New Users', count: data.newVsReturning.new, color: 'bg-blue-500' },
-              { label: 'Returning Users', count: data.newVsReturning.returning, color: 'bg-green-500' }
+              {
+                label: 'New Users',
+                count: data.newVsReturning.new,
+                color: 'bg-blue-500',
+              },
+              {
+                label: 'Returning Users',
+                count: data.newVsReturning.returning,
+                color: 'bg-green-500',
+              },
             ].map(({ label, count, color }) => {
-              const percentage = totalUsers > 0 ? (count / totalUsers) * 100 : 0;
+              const percentage =
+                totalUsers > 0 ? (count / totalUsers) * 100 : 0;
               return (
                 <div key={label} className="space-y-2">
                   <div className="flex items-center justify-between">

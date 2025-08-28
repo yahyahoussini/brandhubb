@@ -1,37 +1,37 @@
-import { CheckCircle, MessageSquare, RotateCcw } from "lucide-react";
-import subscribeImage from "@/assets/process-subscribe.jpg";
-import requestImage from "@/assets/process-request.jpg";
-import approveImage from "@/assets/process-approve.jpg";
+import { CheckCircle, MessageSquare, RotateCcw } from 'lucide-react';
+import subscribeImage from '@/assets/process-subscribe.jpg';
+import requestImage from '@/assets/process-request.jpg';
+import approveImage from '@/assets/process-approve.jpg';
 import { useTranslation } from 'react-i18next';
 
 const ProcessSection = () => {
   const { t } = useTranslation();
-  
+
   const steps = [
     {
-      number: "01",
+      number: '01',
       icon: CheckCircle,
       title: t('process.steps.subscribe.title'),
       description: t('process.steps.subscribe.description'),
       image: subscribeImage,
-      features: t('process.steps.subscribe.features', { returnObjects: true })
+      features: t('process.steps.subscribe.features', { returnObjects: true }),
     },
     {
-      number: "02", 
+      number: '02',
       icon: MessageSquare,
       title: t('process.steps.request.title'),
       description: t('process.steps.request.description'),
       image: requestImage,
-      features: t('process.steps.request.features', { returnObjects: true })
+      features: t('process.steps.request.features', { returnObjects: true }),
     },
     {
-      number: "03",
+      number: '03',
       icon: RotateCcw,
-      title: t('process.steps.approve.title'), 
+      title: t('process.steps.approve.title'),
       description: t('process.steps.approve.description'),
       image: approveImage,
-      features: t('process.steps.approve.features', { returnObjects: true })
-    }
+      features: t('process.steps.approve.features', { returnObjects: true }),
+    },
   ];
 
   return (
@@ -40,7 +40,7 @@ const ProcessSection = () => {
         {/* Section Header */}
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            {t('process.title')}{" "}
+            {t('process.title')}{' '}
             <span className="gradient-text">{t('process.subtitle')}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -59,16 +59,16 @@ const ProcessSection = () => {
                   <div className="text-6xl font-black text-primary/20 mb-4">
                     {step.number}
                   </div>
-                  
+
                   {/* Process Image */}
                   <div className="relative w-full h-48 mb-6 rounded-lg overflow-hidden">
-                    <img 
-                      src={step.image} 
+                    <img
+                      src={step.image}
                       alt={step.title}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
-                    
+
                     {/* Icon overlay */}
                     <div className="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center glow-primary">
                       <Icon className="w-6 h-6 text-white" />
@@ -86,14 +86,16 @@ const ProcessSection = () => {
                   {/* Features */}
                   <div className="pt-6 border-t border-white/10">
                     <div className="flex flex-wrap gap-2 justify-center">
-                      {(step.features as string[]).map((feature: string, featureIndex: number) => (
-                        <span 
-                          key={featureIndex}
-                          className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20"
-                        >
-                          {feature}
-                        </span>
-                      ))}
+                      {(step.features as string[]).map(
+                        (feature: string, featureIndex: number) => (
+                          <span
+                            key={featureIndex}
+                            className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20"
+                          >
+                            {feature}
+                          </span>
+                        )
+                      )}
                     </div>
                   </div>
                 </div>

@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
-import { supabase } from "@/integrations/supabase/client";
-import { Link } from "react-router-dom";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Calendar, User, ArrowRight } from "lucide-react";
-import { format } from "date-fns";
+import { useState, useEffect } from 'react';
+import { supabase } from '@/integrations/supabase/client';
+import { Link } from 'react-router-dom';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Calendar, User, ArrowRight } from 'lucide-react';
+import { format } from 'date-fns';
 
 interface BlogPost {
   id: string;
@@ -64,7 +64,7 @@ const Blog = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="bg-gradient-primary py-24 text-center">
         <div className="container mx-auto px-6">
@@ -72,7 +72,8 @@ const Blog = () => {
             Our Blog
           </h1>
           <p className="text-xl text-white/90 max-w-2xl mx-auto">
-            Insights, tips, and stories about design, development, and digital innovation
+            Insights, tips, and stories about design, development, and digital
+            innovation
           </p>
         </div>
       </section>
@@ -103,36 +104,45 @@ const Blog = () => {
                         />
                       </div>
                     )}
-                    
+
                     <div className="p-6">
                       {post.tags && post.tags.length > 0 && (
                         <div className="flex flex-wrap gap-2 mb-4">
                           {post.tags.slice(0, 2).map((tag) => (
-                            <Badge key={tag} variant="secondary" className="text-xs">
+                            <Badge
+                              key={tag}
+                              variant="secondary"
+                              className="text-xs"
+                            >
                               {tag}
                             </Badge>
                           ))}
                         </div>
                       )}
-                      
+
                       <h2 className="text-xl font-semibold mb-3 line-clamp-2 group-hover:text-primary transition-colors">
                         {post.title}
                       </h2>
-                      
+
                       {post.excerpt && (
                         <p className="text-muted-foreground mb-4 line-clamp-3">
                           {post.excerpt}
                         </p>
                       )}
-                      
+
                       <div className="flex items-center justify-between pt-4 border-t border-border">
                         <div className="flex items-center text-sm text-muted-foreground">
                           <Calendar className="w-4 h-4 mr-1" />
-                          {post.published_at && format(new Date(post.published_at), 'MMM dd, yyyy')}
+                          {post.published_at &&
+                            format(new Date(post.published_at), 'MMM dd, yyyy')}
                         </div>
-                        
+
                         <Link to={`/blog/${post.slug}`}>
-                          <Button variant="ghost" size="sm" className="group/btn">
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            className="group/btn"
+                          >
                             Read more
                             <ArrowRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-1 transition-transform" />
                           </Button>
@@ -146,7 +156,7 @@ const Blog = () => {
           )}
         </div>
       </section>
-      
+
       <Footer />
     </div>
   );
